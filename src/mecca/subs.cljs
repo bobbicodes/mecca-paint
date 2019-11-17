@@ -1,7 +1,7 @@
 (ns ^:figwheel-hooks mecca.subs
-  (:require [re-frame.core :as rf :refer [reg-sub]]))
+  (:require [re-frame.core :refer [reg-sub]]))
 
-(rf/reg-sub
- :file-upload
+(reg-sub
+ :color
  (fn [db _]
-   (:file-upload db)))
+   (:color db)))

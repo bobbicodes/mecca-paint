@@ -9,13 +9,12 @@ This repo was formed from a collection of techniques I developed while working o
 ### Run application:
 
 ```
-lein clean
-lein dev
+clojure -A:fig -b dev -r
 ```
 
-shadow-cljs will automatically push cljs changes to the browser.
-
-Wait a bit, then browse to [http://localhost:8280](http://localhost:8280).
 
 ## Production Build
 
+```
+clj -m figwheel.main -O advanced -bo dev
+```
