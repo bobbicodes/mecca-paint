@@ -73,7 +73,7 @@ goog.addDependency("../cljs/core/async/impl/channels.js", ['cljs.core.async.impl
 goog.addDependency("../cljs/core/async/impl/ioc_helpers.js", ['cljs.core.async.impl.ioc_helpers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async/impl/timers.js", ['cljs.core.async.impl.timers'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async.js", ['cljs.core.async'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols', 'cljs.core.async.impl.ioc_helpers', 'goog.array', 'cljs.core.async.impl.timers']);
-goog.addDependency("../mecca/view.js", ['mecca.view'], ['goog.crypt', 'mecca.events', 'mecca.subs', 'reagent.core', 'cljs.core', 'goog.object', 'clojure.string', 're_frame.core']);
+goog.addDependency("../mecca/view.js", ['mecca.view'], ['reagent.core', 'cljs.core']);
 goog.addDependency("../ajax/protocols.js", ['ajax.protocols'], ['cljs.core']);
 goog.addDependency("../ajax/util.js", ['ajax.util'], ['cljs.core', 'ajax.protocols']);
 goog.addDependency("../ajax/url.js", ['ajax.url'], ['cljs.core', 'ajax.util', 'clojure.string']);
