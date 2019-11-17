@@ -5,3 +5,8 @@
  :color
  (fn [db _]
    (:color db)))
+
+(reg-sub
+ :pixels
+ (fn [db _]
+   (:pixels db)))

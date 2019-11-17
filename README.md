@@ -12,7 +12,6 @@ This repo was formed from a collection of techniques I developed while working o
 clojure -A:fig -b dev -r
 ```
 
-
 ## Production Build
 
 ```
