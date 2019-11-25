@@ -67,17 +67,17 @@
 (defn macro-view []
   (into [:g]
         (for [[color [x y]] @(subscribe [:pixels])]
-          [:rect {:width  0.975
-                  :height 0.98
+          [:rect {:width  0.985
+                  :height 1
                   :fill   color
-                  :x      (+ 16 (* 0.975 x))
-                  :y      (+ 54.5 (* 0.98 y))}])))
+                  :x      (+ 16 (* 0.985 x))
+                  :y      (+ 54.5 (* 1 y))}])))
 
 (defn mecca []
   [:svg
    {:width    "100%"
     :view-box "0 0 256 224"
-    :style    {:cursor "url(/images/cursor.png),crosshair"}}
+    :style    {:cursor "url(/mecca-paint/resources/public/images/cursor.png),cell"}}
    (svg-paths (paint @(subscribe [:color])))
    [macro-view]
    (for [x (range 16)]
