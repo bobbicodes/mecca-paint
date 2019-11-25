@@ -64,19 +64,32 @@
    ["#f8f8f8" "M4 4h2M4 5h2"]
    ["#808080" "M11 5h1M11 6h1M11 7h1M10 8h1M10 9h1M3 10h2M8 10h2M5 11h3M11 11h1M10 12h3M6 13h5"]])
 
+(defn macro-view []
+  (into [:g]
+        (for [[color [x y]] @(subscribe [:pixels])]
+          [:rect {:width  0.975
+                  :height 0.98
+                  :fill   color
+                  :x      (+ 16 (* 0.975 x))
+                  :y      (+ 54.5 (* 0.98 y))}])))
+
 (defn mecca []
   [:svg
-   {:width "100%"
-                :view-box "0 0 256 224"
-                :style  {:cursor     "url(/images/cursor.png),crosshair"}}
+   {:width    "100%"
+    :view-box "0 0 256 224"
+    :style    {:cursor "url(/mecca-paint/resources/public/images/cursor.png),cell"}}
    (svg-paths (paint @(subscribe [:color])))
+   [macro-view]
    (for [x (range 16)]
      ^{:key x}
      (svg-paths  {:on-click #(dispatch [:select-color (get colors x)])} (color x) (+ 24 (* 14 x)) 9 1))
    (for [x (range 16)
          y (range 16)]
      ^{:key [x y]}
-     (svg-paths {:on-click #(dispatch [:fill-cell x y @(subscribe [:color])])} cell (+ 48.5 (* 8 x)) (+ 47.5 (* 8 y)) 1)
-     )
+     (svg-paths {:on-click #(dispatch [:fill-cell x y @(subscribe [:color])])} cell (+ 48.5 (* 8 x)) (+ 47.5 (* 8 y)) 1))
    (for [[color [x y]] @(subscribe [:pixels])]
-     [:rect {:width 7 :height 7 :fill color :x (+ 48.5 (* 8 x)) :y (+ 47 (* 8 y))}])])
+     [:rect {:width  7
+             :height 7
+             :fill   color
+             :x      (+ 48.5 (* 8 x))
+             :y      (+ 47 (* 8 y))}])])
